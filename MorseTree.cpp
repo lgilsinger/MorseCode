@@ -1,6 +1,5 @@
-//
-// Created by Luke Gilsinger on 12/6/16.
-//
+
+// morse tree.cpp
 
 #include "MorseTree.h"
 
@@ -16,13 +15,14 @@ MorseTree::MorseTree()
 }
 
 void MorseTree::BuildTree(char letter, string code) {
-
+	
 	morsify[letter] = code;
 	node *ptr = root;
-	ptr->data = letter;
-
+	cout << "Storing letter- " << letter;
+	int count = 0;
 	for (int i = 0; i <= code.length(); i++)
-	{
+	{ 
+		count++;
 		if (code[i] = '.')
 		{
 			if (ptr->left == nullptr)
@@ -32,7 +32,7 @@ void MorseTree::BuildTree(char letter, string code) {
 			}
 			else
 			{
-				ptr = (node = node->left);
+				ptr = node->left;
 			}
 		}
 		else if (code[i] = '-')
@@ -44,12 +44,15 @@ void MorseTree::BuildTree(char letter, string code) {
 			}
 			else
 			{
-				ptr = (node = node->right);
+				ptr = node->right)
 			}
 		
 		}
 	}
+	cout << "- at depth " << count;
+	//store the values in the tree after reaching the correct location
 	ptr->morseCode = code;
+	ptr->data = letter;
 	
 
 }

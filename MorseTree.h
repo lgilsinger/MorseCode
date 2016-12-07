@@ -1,4 +1,4 @@
-//
+#pragma once
 //
 // Created by Luke Gilsinger on 12/6/16.
 //
@@ -16,38 +16,38 @@ using namespace std;
 
 
 struct node {
-    char data;
-    string code;
-    node *left;
-    node *right;
+	char data;
+	string code;
+	node *left;
+	node *right;
 };
-node* getNewNode(char letter, string code){
-    cout << "creating new node" << endl;
-    node* newNode = new node();
-    newNode->data = letter;
-    newNode->code = code;
-    newNode ->left = newNode->right = NULL;
-    return newNode;
+node* getNewNode(char letter, string code) {
+	cout << "creating new node" << endl;
+	node* newNode = new node();
+	newNode->data = letter;
+	newNode->code = code;
+	newNode->left = newNode->right = NULL;
+	return newNode;
 }
 
-class MorseTree{
+class MorseTree {
 public:
 	//constructor
 	BuildTree();
 
 	//building the tree
-    void BuildTree(char letter, string code);
-	
+	void BuildTree(char letter, string code);
+
 	//decoding and encoding
-    string decode(string code);  //to latin alphabet
-    string encode(string word);  // to morse
+	string decode(string code);  //to latin alphabet
+	string encode(string word);  // to morse
 
 private:
 	//pointer
-    node *root;
+	node *root;
 	//use map
-    map<char, string> morsify;
+	map<char, string> morsify;
 
 };
 
-#endif //TREE_MORSETREE_H
+#endif //TREE_M
