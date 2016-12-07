@@ -1,15 +1,17 @@
 //
+//
 // Created by Luke Gilsinger on 12/6/16.
 //
 
 #ifndef TREE_MORSETREE_H
 #define TREE_MORSETREE_H
 
-#endif //TREE_MORSETREE_H
+
 #include <iostream>
 #include<fstream>
 #include<string>
 #include<map>
+#include <vector>
 using namespace std;
 
 
@@ -30,12 +32,22 @@ node* getNewNode(char letter, string code){
 
 class MorseTree{
 public:
+	//constructor
+	BuildTree();
+
+	//building the tree
     void BuildTree(char letter, string code);
-    string decode(string code);
-    string encode(string word);
+	
+	//decoding and encoding
+    string decode(string code);  //to latin alphabet
+    string encode(string word);  // to morse
 
 private:
+	//pointer
     node *root;
-    map<char, string> lettertocode;
+	//use map
+    map<char, string> morsify;
 
 };
+
+#endif //TREE_MORSETREE_H
